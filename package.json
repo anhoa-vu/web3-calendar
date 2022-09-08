@@ -1,0 +1,27 @@
+{
+  "name": "web3-calendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhoa-vu/web3-calendar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anhoa-vu/web3-calendar/issues"
+  },
+  "homepage": "https://github.com/anhoa-vu/web3-calendar#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "hardhat": "^2.11.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.2"
+  }
+}
