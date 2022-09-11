@@ -3,10 +3,18 @@ pragma solidity ^0.8.0;
 
 contract Calend3 {
     uint rate;
-    address owner;
+    address payable owner;
+    struct Appointment {
+        string title;
+        address attendee;
+        uint startTime;
+        uint endTime;
+        uint amountPaid;
+    }
+    Appointment[] appointments;
 
     constructor(){
-        owner = msg.sender;
+        owner = payable(msg.sender);
     }
 
     function getRate() public view returns (uint) {
@@ -16,6 +24,27 @@ contract Calend3 {
     function setRate(uint _rate) public{
         require(msg.sender == owner, "Only the owner can set the rate");
         rate = _rate;
+    }
+
+    function getAppointment() public view returns (Appointment[] memory){
+        return appointments;
+    }
+
+    function createAppointment(string memory title, uint startTime, uint endTime) public payable{
+        Appointment memory appointment;
+        appointment.title = title;
+        appointment.startTime = startTime;
+        appointment.endTime = endTime;
+        appointment.amountPaid = ((endTime - startTime) / 60) * rate;
+
+
+        require(msg.value >= appointment.amountPaid, "We need more ether");
+        (bool success, ) = owner.call{value: msg.value}("");
+        require(success, "Failed to send ether");
+        
+        //add to appointments
+        appointments.push(appointment);
+
     }
     
 }
