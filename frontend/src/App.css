@@ -25,14 +25,26 @@ h1 {
   color: black;
   padding: 20px;
 }
+
 button {
   background-color: black;
   color: white;
   border: 0;
-  font-size: 24px;
+  font-size: 24px; 
   padding: 10px;
   margin: 20px;
   cursor: pointer;
+} 
+
+#admin {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  color: black
+}
+#settings-button {
+  background: #282c34;
+  color: white
 }
 
 .App-header {
