@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 contract Calend3 {
     uint rate;
-    address payable owner;
+    address payable public owner;
     struct Appointment {
         string title;
         address attendee;
@@ -26,7 +26,7 @@ contract Calend3 {
         rate = _rate;
     }
 
-    function getAppointment() public view returns (Appointment[] memory){
+    function getAppointments() public view returns (Appointment[] memory){
         return appointments;
     }
 
