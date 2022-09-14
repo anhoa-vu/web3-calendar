@@ -12,7 +12,26 @@ async function main() {
 
   await contract.deployed();
 
+  saveFrontendFiles();
+
   console.log('Calend3 deployed to: ', contract.address);
+}
+
+function saveFrontendFiles() {
+  const fs = require('fs');
+
+  const abiDir = __dirname + '/../frontend/src/abis';
+
+  if (!fs.existsSync(abiDir)){
+    fs.mkdirSync(abiDir);
+  }
+
+  const artifact = artifacts.readArtifactSync("Calend3");
+
+  fs.writeFileSync(
+    abiDir + "/Calend3.json",
+    JSON.stringify(artifact, null, 2)
+  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere
