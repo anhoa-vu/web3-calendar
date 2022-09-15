@@ -186,6 +186,7 @@ const Calendar = (props) => {
                 <ViewState />
                 <EditingState onCommitChanges = {saveAppointment}/>
                 <WeekView startDayHour={9} endDayHour={19}/>
+
                 <Appointments />
                 <AppointmentForm />
             </Scheduler>
